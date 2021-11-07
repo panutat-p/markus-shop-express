@@ -33,8 +33,8 @@ app.get("/products", async (req, res) => {
 
 app.get("/products/:id", async (req, res) => {
   const {id} = req.params;
-  const product = await Product.findById(id)
-  res.send(product)
+  const product = await Product.findById(id);
+  res.send(product);
 });
 
 app.post("/products", async (req, res) => {
@@ -44,26 +44,27 @@ app.post("/products", async (req, res) => {
   try {
     await newProduct.save();
     console.log(newProduct);
-    res.send({data: "success"})
+    res.send({data: "success"});
   } catch (e) {
     res.send({data: "failed", info: e});
     console.log(e);
   }
-})
+});
 
-app.put("/product/:id", async (req, res) => {
+app.put("/products/:id", async (req, res) => {
   // body: name, price, category
   console.log(req.body);
-  const id = req.params;
+  const {id} = req.params;
   try {
     // options: validate schema, delete old document
-    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true, runValidators: true});
-    res.send({data: "success"})
+    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, {new: true, runValidators: true});
+    console.log(updatedProduct);
+    res.send({data: "success"});
   } catch (e) {
-    res.send({data: "failed", info: e})
+    res.send({data: "failed", info: e});
     console.log(e);
   }
-})
+});
 
 app.listen(3000, () => {
   console.log(`Express listening`);
