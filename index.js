@@ -43,6 +43,7 @@ app.post("/products", async (req, res) => {
   console.log(req.body);
   try {
     await newProduct.save();
+    console.log(newProduct);
     res.send({data: "success"})
   } catch (e) {
     res.send({data: "failed", info: e});
