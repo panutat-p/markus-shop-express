@@ -51,6 +51,20 @@ app.post("/products", async (req, res) => {
   }
 })
 
+app.put("/product/:id", async (req, res) => {
+  // body: name, price, category
+  console.log(req.body);
+  const id = req.params;
+  try {
+    // options: validate schema, delete old document
+    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true, runValidators: true});
+    res.send({data: "success"})
+  } catch (e) {
+    res.send({data: "failed", info: e})
+    console.log(e);
+  }
+})
+
 app.listen(3000, () => {
   console.log(`Express listening`);
 });
