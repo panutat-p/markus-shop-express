@@ -1,11 +1,12 @@
-import {MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_TEST} from "../secret.js";
-import mongoose from 'mongoose';
+import { MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_TEST } from "../secret.js";
+import mongoose from "mongoose";
 
 const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/${MONGODB_TEST}`;
 
 console.log(CONNECTION_STRING);
 
-mongoose.connect(CONNECTION_STRING)
+mongoose
+  .connect(CONNECTION_STRING)
   .then(() => {
     console.log("connection open");
   })
@@ -21,7 +22,7 @@ const movieSchema = new mongoose.Schema({
   rating: String,
 });
 
-const Movie = mongoose.model("Movie", movieSchema);  // Mongoose create "movies" from "Movie"
+const Movie = mongoose.model("Movie", movieSchema); // Mongoose create "movies" from "Movie"
 
 Movie.insertMany([
   { title: "Amelie", year: 2001, score: 8.3, rating: "R" },

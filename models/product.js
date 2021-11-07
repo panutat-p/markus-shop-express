@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -13,8 +13,8 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     lowercase: true,
-    enum: ['fruit', 'vegetable', 'dairy'],
-  }
+    enum: ["fruit", "vegetable", "dairy"],
+  },
 });
 
-export const Product = mongoose.model('Product', productSchema);
+export const Product = mongoose.model("Product", productSchema);

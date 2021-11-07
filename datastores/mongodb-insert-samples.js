@@ -1,12 +1,17 @@
-import {Product} from "../models/product.js";
-import {MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_MARKUS_SHOP} from "../secret.js";
-import mongoose from 'mongoose';
+import { Product } from "../models/product.js";
+import {
+  MONGODB_USERNAME,
+  MONGODB_PASSWORD,
+  MONGODB_MARKUS_SHOP,
+} from "../secret.js";
+import mongoose from "mongoose";
 
 const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/${MONGODB_MARKUS_SHOP}`;
 
 console.log(CONNECTION_STRING);
 
-mongoose.connect(CONNECTION_STRING)
+mongoose
+  .connect(CONNECTION_STRING)
   .then(() => {
     console.log("connection open");
   })
@@ -17,29 +22,29 @@ mongoose.connect(CONNECTION_STRING)
 
 const sampleProducts = [
   {
-    name: 'Fairy Eggplant',
-    price: 1.00,
-    category: 'vegetable'
+    name: "Fairy Eggplant",
+    price: 1.0,
+    category: "vegetable",
   },
   {
-    name: 'Organic Goddess Melon',
+    name: "Organic Goddess Melon",
     price: 4.99,
-    category: 'fruit'
+    category: "fruit",
   },
   {
-    name: 'Organic Mini Seedless Watermelon',
+    name: "Organic Mini Seedless Watermelon",
     price: 3.99,
-    category: 'fruit'
+    category: "fruit",
   },
   {
-    name: 'Organic Celery',
-    price: 1.50,
-    category: 'vegetable'
+    name: "Organic Celery",
+    price: 1.5,
+    category: "vegetable",
   },
   {
-    name: 'Chocolate Whole Milk',
+    name: "Chocolate Whole Milk",
     price: 2.69,
-    category: 'dairy'
+    category: "dairy",
   },
 ];
 
