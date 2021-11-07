@@ -33,4 +33,3 @@ Movie.insertMany([
   console.log("IT WORKED!");
   console.log(data);
 });
-
