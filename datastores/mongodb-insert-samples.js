@@ -1,8 +1,8 @@
 import {Product} from "../models/product.js";
-import {MONGODB_USERNAME, MONGODB_PASSWORD} from "../secret.js";
+import {MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_MARKUS_SHOP} from "../secret.js";
 import mongoose from 'mongoose';
 
-const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/markus-shop`;
+const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/${MONGODB_MARKUS_SHOP}`;
 
 console.log(CONNECTION_STRING);
 

@@ -1,7 +1,7 @@
-import {MONGODB_USERNAME, MONGODB_PASSWORD} from "../secret.js";
+import {MONGODB_USERNAME, MONGODB_PASSWORD, MONGODB_TEST} from "../secret.js";
 import mongoose from 'mongoose';
 
-const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/test`;
+const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/${MONGODB_TEST}`;
 
 console.log(CONNECTION_STRING);
 
