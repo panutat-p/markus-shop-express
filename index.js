@@ -66,6 +66,18 @@ app.put("/products/:id", async (req, res) => {
   }
 });
 
+app.delete("/products/:id", async (req, res) => {
+  const {id} = req.params;
+  try {
+    const deletedProduct = await Product.findByIdAndDelete(id);
+    console.log(deletedProduct);
+    res.send({data: "success"});
+  } catch (e) {
+    res.send({data: "failed", info: e});
+    console.log(e);
+  }
+});
+
 app.listen(3000, () => {
   console.log(`Express listening`);
 });
