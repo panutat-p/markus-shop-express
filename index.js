@@ -6,6 +6,7 @@ import {
 import mongoose from "mongoose";
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import { Product } from "./models/product.js";
 
 const CONNECTION_STRING = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.x6xvn.mongodb.net/${MONGODB_MARKUS_SHOP}`;
@@ -26,6 +27,11 @@ const app = express();
 
 // Express middleware
 app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.get("/", (req, res) => {
   res.send(
@@ -34,6 +40,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products", async (req, res) => {
+  console.log("accept request");
   const products = await Product.find({});
   res.send(products);
 });
