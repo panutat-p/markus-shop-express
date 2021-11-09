@@ -41,13 +41,13 @@ app.get("/", (req, res) => {
 
 app.get("/products", async (req, res) => {
   console.log("accept request");
-  const products = await Product.find({});
+  const products = await Product.find({}, { __v: 0 });
   res.send(products);
 });
 
 app.get("/products/:id", async (req, res) => {
   const { id } = req.params;
-  const product = await Product.findById(id);
+  const product = await Product.findById(id, { __v: 0 });
   res.send(product);
 });
 
