@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products", async (req, res) => {
-  console.log("accept request");
+  console.log("/products");
   const products = await Product.find({}, { __v: 0 });
   res.send(products);
 });
@@ -49,6 +49,19 @@ app.get("/products/:id", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id, { __v: 0 });
   res.send(product);
+});
+
+app.get("/category", async (req, res) => {
+  console.log("/category");
+  const categories = await Product.find().distinct("category");
+  res.send(categories);
+})
+
+app.get("/search", async (req, res) => {
+  console.log("/search");
+  const { category } = req.query;
+  const productsInCategory = await Product.find({ category }, { __v: 0 });
+  res.send(productsInCategory);
 });
 
 app.post("/products", async (req, res) => {
