@@ -51,8 +51,8 @@ app.get("/products/:id", async (req, res) => {
   res.send(product);
 });
 
-app.get("/category", async (req, res) => {
-  console.log("/category");
+app.get("/categories", async (req, res) => {
+  console.log("/categories");
   const categories = await Product.find().distinct("category");
   res.send(categories);
 })
