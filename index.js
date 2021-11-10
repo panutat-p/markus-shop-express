@@ -65,6 +65,7 @@ app.get("/search", async (req, res) => {
 });
 
 app.post("/products", async (req, res) => {
+  console.log("POST /products");
   // body: name, price, category
   const newProduct = new Product(req.body);
   console.log(req.body);
